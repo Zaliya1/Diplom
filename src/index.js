@@ -1,4 +1,4 @@
 import headerModal from './modules/headerModal';
-import menu from './modules/menu';
+import slider from './modules/slider';
 headerModal();
-menu();
+slider();
