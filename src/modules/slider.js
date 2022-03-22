@@ -3,7 +3,7 @@ const slider = () => {
         slidesPerView: "auto",
         centeredSlides: false,
         centeredSlidesBounds: true,
-        spaceBetween: 25,
+        // spaceBetween: 25,
         navigation: {
             nextEl: '.benefits__arrow--right',
             prevEl: '.benefits__arrow--left',
