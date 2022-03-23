@@ -16,7 +16,7 @@
   \******************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_headerModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/headerModal */ \"./modules/headerModal.js\");\n/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/slider */ \"./modules/slider.js\");\n/* harmony import */ var _modules_timer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/timer */ \"./modules/timer.js\");\n\r\n\r\n\r\n\r\n(0,_modules_headerModal__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\r\n(0,_modules_slider__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\r\n(0,_modules_timer__WEBPACK_IMPORTED_MODULE_2__[\"default\"])('31 march 2022');\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_headerModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/headerModal */ \"./modules/headerModal.js\");\n/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/slider */ \"./modules/slider.js\");\n/* harmony import */ var _modules_timer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/timer */ \"./modules/timer.js\");\n/* harmony import */ var _modules_servicesModal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/servicesModal */ \"./modules/servicesModal.js\");\n/* harmony import */ var _modules_validateForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/validateForm */ \"./modules/validateForm.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n(0,_modules_headerModal__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\r\n(0,_modules_slider__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\r\n(0,_modules_timer__WEBPACK_IMPORTED_MODULE_2__[\"default\"])('31 march 2022');\r\n(0,_modules_servicesModal__WEBPACK_IMPORTED_MODULE_3__[\"default\"])();\r\n(0,_modules_validateForm__WEBPACK_IMPORTED_MODULE_4__[\"default\"])();\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -27,6 +27,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst headerModal = () => {\r\n    const buttons = document.querySelectorAll('a[href=\"#callback\"]');\r\n    const modal = document.querySelector('.header-modal');\r\n    const overlay = document.querySelector('.overlay');\r\n    const closeModal = document.querySelector('.header-modal__close');\r\n    buttons.forEach(button => {\r\n        button.addEventListener('click', () => {\r\n            modal.style.display = \"block\";\r\n            overlay.style.display = \"block\";\r\n        });\r\n    });\r\n    closeModal.addEventListener('click', () => {\r\n        modal.style.display = \"none\";\r\n        overlay.style.display = \"none\"\r\n    });\r\n};\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (headerModal);\n\n//# sourceURL=webpack:///./modules/headerModal.js?");
+
+/***/ }),
+
+/***/ "./modules/servicesModal.js":
+/*!**********************************!*\
+  !*** ./modules/servicesModal.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst servicesModal = () => {\r\n    const modal = document.querySelector('.services-modal');\r\n    const overlay = document.querySelector('.overlay');\r\n    const btns = document.querySelectorAll('.service-button');\r\n    const closeModal = document.querySelector('.services-modal__close');\r\n    btns.forEach(btn => {\r\n        btn.addEventListener('click', () => {\r\n            modal.style.display = \"block\";\r\n            overlay.style.display = \"block\";\r\n        });\r\n    });\r\n    closeModal.addEventListener('click', () => {\r\n        modal.style.display = \"none\";\r\n        overlay.style.display = \"none\";\r\n    });\r\n};\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (servicesModal);\n\n//# sourceURL=webpack:///./modules/servicesModal.js?");
 
 /***/ }),
 
@@ -47,6 +57,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst timer = (deadline) => {\r\n    const timerDays = document.querySelector('.count_1 > span');\r\n    const timerHours = document.querySelector('.count_2 > span');\r\n    const timerMinutes = document.querySelector('.count_3 > span');\r\n    const timerSeconds = document.querySelector('.count_4 > span');\r\n    const getTimeRemaining = () => {\r\n        const deadlineTime = new Date(deadline).getTime();\r\n        const today = new Date().getTime();\r\n        let timeRemaining = (deadlineTime - today) / 1000; // время до дедлайна в секундах\r\n        let days = Math.floor( timeRemaining/60/60/24 );\r\n        let hours = Math.floor( timeRemaining/60/60%24 );\r\n        let minutes = Math.floor( timeRemaining/60%60 );\r\n        let seconds = Math.floor( timeRemaining%60 );\r\n        return {timeRemaining, days, hours, minutes, seconds};\r\n    };\r\n    const updateClock = () => {\r\n        let getTime = getTimeRemaining();\r\n        if (getTime.timeRemaining > 0) {\r\n            if (String(getTime.days).length === 1) {\r\n                timerDays.textContent = \"0\" + getTime.days;\r\n            } else {timerDays.textContent = getTime.days;}\r\n\r\n            if (String(getTime.hours).length === 1) {\r\n                timerHours.textContent = \"0\" + getTime.hours;\r\n            } else {timerHours.textContent = getTime.hours;}\r\n\r\n            if (String(getTime.minutes).length === 1) {\r\n                timerMinutes.textContent = \"0\" + getTime.minutes;\r\n            } else {timerMinutes.textContent = getTime.minutes;}\r\n\r\n            if (String(getTime.seconds).length === 1) {\r\n                timerSeconds.textContent = \"0\" + getTime.seconds;\r\n            } else {timerSeconds.textContent = getTime.seconds;}\r\n        } else {\r\n            clearInterval(idInterval);\r\n            timerDays.textContent = \"00\";\r\n            timerHours.textContent = \"00\";\r\n            timerMinutes.textContent = \"00\";\r\n            timerSeconds.textContent = \"00\";\r\n        }\r\n    };\r\n    updateClock();\r\n    let idInterval = setInterval(updateClock, 1000);\r\n};\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (timer);\n\n//# sourceURL=webpack:///./modules/timer.js?");
+
+/***/ }),
+
+/***/ "./modules/validateForm.js":
+/*!*********************************!*\
+  !*** ./modules/validateForm.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst validateForm = () => {\r\n    const inputs = document.querySelectorAll('.form-control');\r\n    const closeModal = document.querySelector('.services-modal__close');\r\n    console.log(inputs)\r\n    inputs.forEach(input => {\r\n        input.setAttribute(\"required\",\"required\");\r\n    });\r\n};\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (validateForm);\r\n\n\n//# sourceURL=webpack:///./modules/validateForm.js?");
 
 /***/ })
 
