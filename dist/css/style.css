@@ -1996,7 +1996,7 @@ input.error {
   height: 300px;
 }
 
-.row {
+.row1 {
   width: 1080px;
 }
 
@@ -2009,7 +2009,7 @@ input.error {
     width: 185px;
   }
 
-  .row {
+  .row1 {
     width: 540px;
   }
 }
