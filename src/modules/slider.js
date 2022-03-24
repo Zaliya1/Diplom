@@ -22,7 +22,11 @@ const slider = () => {
         autoplay: {
             delay: 3000,
         },
-        loop: true,
+        grid: {
+            column: 2,
+            row: 2,
+        },
+        // loop: true,
         navigation: {
             nextEl: '.services__arrow--right',
             prevEl: '.services__arrow--left',
