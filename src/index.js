@@ -7,7 +7,7 @@ import calculate from './modules/calculate';
 
 headerModal();
 slider();
-timer('31 march 2022');
+timer('21 march 2022');
 servicesModal();
 validateForm();
 calculate();

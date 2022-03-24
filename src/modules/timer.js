@@ -3,6 +3,8 @@ const timer = (deadline) => {
     const timerHours = document.querySelector('.count_2 > span');
     const timerMinutes = document.querySelector('.count_3 > span');
     const timerSeconds = document.querySelector('.count_4 > span');
+    const text = document.querySelector('.countdown-text');
+
     const getTimeRemaining = () => {
         const deadlineTime = new Date(deadline).getTime();
         const today = new Date().getTime();
@@ -12,6 +14,18 @@ const timer = (deadline) => {
         let minutes = Math.floor( timeRemaining/60%60 );
         let seconds = Math.floor( timeRemaining%60 );
         return {timeRemaining, days, hours, minutes, seconds};
+    };
+    const clearTimer = () => {
+        text.innerHTML = `Акция закончилась!<div class="count-wrap">
+        <div class="count count_1">Дней:</br> <span>00</span></div>
+        <div class="count count_2">Часов:</br> <span>00</span></div>
+        <div class="count count_3">Минут:</br> <span>00</span></div>
+        <div class="count count_4">Секунд:</br> <span>00</span></div>
+        </div>`;
+        // timerDays.textContent = "00";
+        // timerHours.textContent = "00";
+        // timerMinutes.textContent = "00";
+        // timerSeconds.textContent = "00";
     };
     const updateClock = () => {
         let getTime = getTimeRemaining();
@@ -33,13 +47,16 @@ const timer = (deadline) => {
             } else {timerSeconds.textContent = getTime.seconds;}
         } else {
             clearInterval(idInterval);
-            timerDays.textContent = "00";
-            timerHours.textContent = "00";
-            timerMinutes.textContent = "00";
-            timerSeconds.textContent = "00";
+            clearTimer();
         }
     };
-    updateClock();
-    let idInterval = setInterval(updateClock, 1000);
+    
+    let getTime = getTimeRemaining();
+    if (getTime.timeRemaining > 0) {
+        updateClock();
+        let idInterval = setInterval(updateClock, 1000);
+    } else {
+        clearTimer();
+    }    
 };
 export default timer;
