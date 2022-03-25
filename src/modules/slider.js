@@ -19,18 +19,22 @@ const slider = () => {
         slidesPerView: "auto",
         centeredSlides: false,
         centeredSlidesBounds: true,
-        autoplay: {
-            delay: 3000,
-        },
-        grid: {
-            column: 2,
-            row: 2,
-        },
+        // autoplay: {
+        //     delay: 3000,
+        // },
         // loop: true,
+        // grid: {
+        //     columns: 1,
+        //     rows: 2,
+        // },
+        // slidesPerView: 2,
+        // slidesPerColumn: 1,
+        // slidesPerColumnFill: 'column',
         navigation: {
             nextEl: '.services__arrow--right',
             prevEl: '.services__arrow--left',
         },
     });
+
 };
 export default slider;
