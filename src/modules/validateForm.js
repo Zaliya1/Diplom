@@ -1,5 +1,6 @@
 const validateForm = () => {
-    const forms = document.querySelectorAll('.form-horizontal');
+    const forms = document.querySelectorAll('.form-horizontal, form[name="callback-form"]');
+    console.log(forms)
     forms.forEach(form => {
         const inputs = document.querySelectorAll('.form-control');
         const inputName = form.querySelector('input[name="fio"]');
