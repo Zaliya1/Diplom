@@ -7,6 +7,8 @@ const servicesModal = () => {
         btn.addEventListener('click', () => {
             modal.style.display = "block";
             overlay.style.display = "block";
+            const dataSubject = btn.querySelector('a').getAttribute('data-subject');
+            console.log(dataSubject)
         });
     });
     closeModal.addEventListener('click', () => {

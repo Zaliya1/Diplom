@@ -1,15 +1,23 @@
 const validateForm = () => {
+    
     const forms = document.querySelectorAll('.form-horizontal, form[name="callback-form"], form[name="application-form"]');
     forms.forEach(form => {
         const inputs = document.querySelectorAll('.form-control');
         const inputName = form.querySelector('input[name="fio"]');
         const inputPhone = form.querySelector('input[name="phone"]');
+        const btns = document.querySelectorAll('.service-button');
         let errorInputName = true;
         let errorInputPhone = true;
-    
+        let dataSubject;
+
         form.setAttribute('novalidate', 'novalidate'); // отключение стадарт. валидации
         inputs.forEach(input => {
             input.setAttribute("required","required"); // все инпуты обязательные
+        });
+        btns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                dataSubject = btn.querySelector('a').getAttribute('data-subject');
+            });
         });
         
         inputName.addEventListener('input', (event) => {
@@ -54,7 +62,7 @@ const validateForm = () => {
         });
         inputPhone.addEventListener('input', (event) => {
             // если номер телефона слишком короткий, ошибка
-            if (event.target.value.length < 19) {
+            if (event.target.value.length < 18) {
                 errorInputPhone = true;
             } else {
                 inputPhone.classList.remove('error');
@@ -117,9 +125,10 @@ const validateForm = () => {
             formData.forEach((val, key) => {
                 formBody[key] = val;
             });
-            if (calculateTotal.value !== "") {
+            if (calculateTotal && calculateTotal.value !== "") {
                 formBody['Сумма'] = calculateTotal.value;
             }
+            formBody['subject'] = dataSubject;
             sendData(formBody);
 
             inputName.value = "";
