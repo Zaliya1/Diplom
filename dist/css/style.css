@@ -2004,6 +2004,31 @@ input.error {
   width: 50%;
 }
 
+.certificate-modal {
+  display: none;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100%;
+  width: 100%;
+  background-position: center center;
+}
+
+.certificate-modal--opened {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+.certificate-modal__close {
+  position: absolute;
+  top: 20px;
+  right: 41%;
+  font-size: 36px;
+  cursor: pointer;
+}
+
 @media (max-width: 576px) {
   .benefits-inner {
     width: 185px;

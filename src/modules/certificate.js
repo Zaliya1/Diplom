@@ -1,38 +1,36 @@
 const certificate = () => {
-    const documentOverlay = document.querySelectorAll('.document-overlay');
+    const documentOverlays = document.querySelectorAll('.document-overlay');
     const overlay = document.querySelector('.overlay');
-    const closeBtn = document.createElement('button');
-    closeBtn.textContent = "X";
-    closeBtn.style.backgroundColor = "#4f686e";
-    closeBtn.style.borderRadius = "50%";
-    closeBtn.style.color = "white";
-    closeBtn.style.width = "25px";
-    closeBtn.style.height = "25px";
+    const certificates = document.querySelectorAll('.sertificate-document');
+    const modal = document.querySelector('.certificate-modal');
+    const closeBtn = document.querySelector('.certificate-modal__close')
 
-    documentOverlay.forEach(certificate => {
-        certificate.style.width = "200px";
-        certificate.style.left = "25%";
+    documentOverlays.forEach(documentOverlay => {
+        documentOverlay.style.width = "200px";
+        documentOverlay.style.left = "25%";
 
-        certificate.addEventListener('mouseover', () => {
-            certificate.style.opacity = 1;
+        documentOverlay.addEventListener('mouseover', () => {
+            documentOverlay.style.opacity = 1;
         });
-        certificate.addEventListener('mouseout', () => {
-            certificate.style.opacity = 0;
+        documentOverlay.addEventListener('mouseout', () => {
+            documentOverlay.style.opacity = 0;
         });
-
-        // overlay.append(closeBtn)
+    });
+    certificates.forEach(certificate => {
         certificate.addEventListener('click', (e) => {
             e.preventDefault();
             overlay.style.display = "block";
-            overlay.style.backgroundImage = "url(../images/documents/document4.jpg)";
-            overlay.style.backgroundRepeat = "no-repeat";
-            overlay.style.backgroundSize = "contain";
-            overlay.style.backgroundPosition = "center center";
+            modal.style.display = "block";
+            const img = certificate.getAttribute('href');
+            modal.style.backgroundImage = `url(../${img})`;
         });
         closeBtn.addEventListener('click', () => {
             overlay.style.display = "none";
+            modal.style.display = "none";
         });
-    });
+    });  
+        
+    
 
 };
 export default certificate;
