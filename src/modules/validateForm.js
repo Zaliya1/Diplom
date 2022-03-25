@@ -1,5 +1,5 @@
 const validateForm = () => {
-    const forms = document.querySelectorAll('.form-horizontal, form[name="callback-form"]');
+    const forms = document.querySelectorAll('.form-horizontal, form[name="callback-form"], form[name="application-form"]');
     forms.forEach(form => {
         const inputs = document.querySelectorAll('.form-control');
         const inputName = form.querySelector('input[name="fio"]');
@@ -100,15 +100,35 @@ const validateForm = () => {
                 headers: {
                     "Content-Type": "application/json"
                 }
-            }).then(res => res.json());
+            })
+            .then(res => res.json())
+            .catch(error => {
+                statusBlock.textContent = 'Ошибка';
+            });
         };
         const submitForm = () => {
             const formData = new FormData(form);
             const formBody = {};
+            const calculateTotal = document.querySelector('#calc-total');
+            const statusBlock = document.createElement('span');
+            
+            form.append(statusBlock);
+            statusBlock.textContent = 'Загрузка';
             formData.forEach((val, key) => {
                 formBody[key] = val;
             });
+            if (calculateTotal.value !== "") {
+                formBody['Сумма'] = calculateTotal.value;
+            }
             sendData(formBody);
+
+            inputName.value = "";
+            inputPhone.value = "";
+            statusBlock.textContent = 'Спасибо! Наш менеджер свяжется с вами';
+            const clearText = () => {
+                statusBlock.textContent = "";
+            };
+            setTimeout(clearText, 5000);
         };
     
         form.addEventListener('submit', (event) => {

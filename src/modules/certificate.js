@@ -20,7 +20,7 @@ const certificate = () => {
             certificate.style.opacity = 0;
         });
 
-        overlay.append(closeBtn)
+        // overlay.append(closeBtn)
         certificate.addEventListener('click', (e) => {
             e.preventDefault();
             overlay.style.display = "block";
