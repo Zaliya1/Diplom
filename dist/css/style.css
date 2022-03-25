@@ -2001,7 +2001,7 @@ input.error {
 }
 
 .col-md-12 {
-  width: 540px;
+  width: 50%;
 }
 
 @media (max-width: 576px) {
@@ -2010,7 +2010,7 @@ input.error {
   }
 
   .row1 {
-    width: 540px;
+    max-width: 540px;
   }
 }
 

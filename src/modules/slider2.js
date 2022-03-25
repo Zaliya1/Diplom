@@ -8,7 +8,7 @@ const sliders = () => {
       breakpoints: {
         1200: {
           slidesPerView: 2,
-          spaceBetween: 10,
+          
           grid: {
             rows: 1,
             fill: 'row'
@@ -16,7 +16,7 @@ const sliders = () => {
         },
         576: {
           slidesPerView: 1,
-          spaceBetween: 10,
+          
           grid: {
             rows: 2,
             fill: 'row'
