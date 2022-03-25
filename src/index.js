@@ -6,7 +6,7 @@ import servicesModal from './modules/servicesModal';
 import validateForm from './modules/validateForm';
 import calculate from './modules/calculate';
 import certificate from './modules/certificate';
-
+import scroll from './modules/scroll';
 
 headerModal();
 slider();
@@ -16,3 +16,4 @@ servicesModal();
 validateForm();
 calculate();
 certificate();
+scroll();
