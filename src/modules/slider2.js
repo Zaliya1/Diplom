@@ -5,10 +5,7 @@ const sliders = () => {
         nextEl: '.services__arrow--right',
         prevEl: '.services__arrow--left',
       },
-      allowTouchMove: true,
       simulateTouch: true,
-      preventClicksPropagation: true,
-      preventClicks: true,
       breakpoints: {
         1200: {
           slidesPerView: 2,
@@ -28,14 +25,6 @@ const sliders = () => {
         },
       }
   
-    });
-  
-    const swiper = document.querySelectorAll('.container');
-    swiper.forEach(sw => {
-      sw.addEventListener('click', (e) => {
-        e.stopPropagation();
-
-      });
     });
     
   }
