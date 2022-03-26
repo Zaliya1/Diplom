@@ -22,7 +22,7 @@ const certificate = () => {
             overlay.style.display = "block";
             modal.style.display = "block";
             const img = certificate.getAttribute('href');
-            modal.style.backgroundImage = `url(../${img})`;
+            modal.style.backgroundImage = `url(${img})`;
         });
         closeBtn.addEventListener('click', () => {
             overlay.style.display = "none";
