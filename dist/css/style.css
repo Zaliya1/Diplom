@@ -2024,9 +2024,11 @@ input.error {
 .certificate-modal__close {
   position: absolute;
   top: 20px;
-  right: 41%;
+  left: 50%;
   font-size: 36px;
   cursor: pointer;
+  width: 200px;
+  padding-left: 150px;
 }
 
 @media (max-width: 576px) {
